@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="CSS.css">
+    <link rel="stylesheet" href="base.css">
+</head>
+<body>
+   <!-- Header -->
+   <header class=" border-bottom border-2 ">
+      <div class="container-lg p-3">
+        <div class="d-flex justify-content-between align-items-center">
+            <!-- Logo/Title -->
+            <div class="d-flex align-items-center">
+                <img src="img/logo.png" alt="Fact Check" class="img-fluid" style="width: 250px; height: 70px; object-fit: cover;">
+                <div class="ms-3">
+                    <div id="datetime" class="text-muted"></div> <!-- Date and time will be displayed here -->
+                    <div id="location" class="text-muted"></div>  <!-- Location will be displayed here -->
+                </div>
+            </div>
+    
+            <!-- Search Bar -->
+            <div class="d-flex align-items-center flex-grow-1 mx-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm..." aria-label="Tìm kiếm">
+                    <button class="btn btn-outline-secondary" type="button">
+                        <i class="bi bi-search"></i> <!-- Search Icon -->
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Language Switcher and Buttons -->
+            <div class="d-flex align-items-center">
+                <a href="#" class="me-2 text-decoration-none link-with-divider language-link us-english">
+                    <img src="img/usa-flag.png" alt="US Flag" class="flag-icon"> US
+                </a>
+                <a href="#" class="me-2 text-decoration-none link-with-divider language-link vn-vietnam">
+                    <img src="img/vn.png" alt="Vietnam Flag" class="flag-icon"> VN
+                </a>
+                <div class="d-flex">
+                    <a href="#" class="me-2 text-decoration-none link-with-divider register-link" onclick="openLoginModal()">Đăng nhập</a>
+                    <a href="#" class="text-decoration-none login-link" onclick="openregisterModal()">Đăng ký</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</header>
+
+<!-- Navigation Menu -->
+<div class="custom-container-menu" id="scrollElement">
+<nav class="custom-navbar scroll-element" >
+    <div class="custom-navbar-wrapper"> 
+    <ul class="custom-navbar-nav">
+        <!-- Home icon -->
+        <li class="custom-nav-item">
+            <a class="custom-nav-link" href="#">
+                <i class="bi bi-house-door"></i> 
+            </a>
+        </li>
+        <li class="custom-nav-item">
+            <a class="custom-nav-link" href="#">
+                Trang chủ
+            </a>
+        </li>
+
+        <!-- Thời sự -->
+        <li class="custom-nav-item custom-dropdown">
+            <a class="custom-nav-link" href="#">Thời sự</a>
+            <ul class="custom-dropdown-menu">
+                <li><a class="custom-dropdown-item" href="#">Quốc hội</a></li>
+                <li><a class="custom-dropdown-item" href="#">An toàn giao thông</a></li>
+                <li><a class="custom-dropdown-item" href="#">Môi trường</a></li>
+                <li><a class="custom-dropdown-item" href="#">BHXH-BHYT</a></li>
+                <li><a class="custom-dropdown-item" href="#">Chống tham nhũng</a></li>
+                <li><a class="custom-dropdown-item" href="#">Quốc phòng</a></li>
+            </ul>
+        </li>
+
+        <!-- Thế giới -->
+        <li class="custom-nav-item custom-dropdown">
+            <a class="custom-nav-link" href="#">Thế giới</a>
+            <ul class="custom-dropdown-menu">
+                <li><a class="custom-dropdown-item" href="#">Bình luận quốc tế</a></li>
+                <li><a class="custom-dropdown-item" href="#">Chân dung</a></li>
+                <li><a class="custom-dropdown-item" href="#">Hồ sơ</a></li>
+                <li><a class="custom-dropdown-item" href="#">Thế giới đó đây</a></li>
+                <li><a class="custom-dropdown-item" href="#">Việt Nam và thế giới</a></li>
+                <li><a class="custom-dropdown-item" href="#">Quân sự</a></li>
+            </ul>
+        </li>
+
+        <!-- Video -->
+        <li class="custom-nav-item custom-dropdown">
+            <a class="custom-nav-link" href="#">Video</a>
+            <ul class="custom-dropdown-menu">
+                <li><a class="custom-dropdown-item" href="#">Thời sự</a></li>
+                <li><a class="custom-dropdown-item" href="#">Nhịp sống</a></li>
+                <li><a class="custom-dropdown-item" href="#">Food</a></li>
+                <li><a class="custom-dropdown-item" href="#">Pháp luật</a></li>
+                <li><a class="custom-dropdown-item" href="#">Giải trí</a></li>
+                <li><a class="custom-dropdown-item" href="#">Thế giới</a></li>
+                <li><a class="custom-dropdown-item" href="#">Khoa học</a></li>
+                <li><a class="custom-dropdown-item" href="#">Thể thao</a></li>
+                <li><a class="custom-dropdown-item" href="#">Giáo dục</a></li>
+            </ul>
+        </li>
+
+        <!-- Podcasts -->
+        <li class="custom-nav-item custom-dropdown">
+            <a class="custom-nav-link" href="#">Podcasts</a>
+            <ul class="custom-dropdown-menu">
+                <li><a class="custom-dropdown-item" href="#">Hôm nay</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tâm điểm kinh tế</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tài chính cá nhân</a></li>
+                <li><a class="custom-dropdown-item" href="#">Giải mã</a></li>
+                <li><a class="custom-dropdown-item" href="#">Hộp đen</a></li>
+                <li><a class="custom-dropdown-item" href="#">Thảm thi</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tôi kể</a></li>
+                <li><a class="custom-dropdown-item" href="#">Bạn ổn không?</a></li>
+                <li><a class="custom-dropdown-item" href="#">Điểm tin</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tiền làm gì?</a></li>
+            </ul>
+        </li>
+
+        <!-- Kinh doanh -->
+        <li class="custom-nav-item custom-dropdown">
+            <a class="custom-nav-link" href="#">Kinh doanh</a>
+            <ul class="custom-dropdown-menu">
+                <li><a class="custom-dropdown-item" href="#">Net Zero</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tài chính</a></li>
+                <li><a class="custom-dropdown-item" href="#">Đầu tư</a></li>
+                <li><a class="custom-dropdown-item" href="#">Thị trường</a></li>
+                <li><a class="custom-dropdown-item" href="#">Doanh nhân</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tư vấn tài chính</a></li>
+                <li><a class="custom-dropdown-item" href="#">Chuyển động kinh tế số</a></li>
+            </ul>
+        </li>
+        <!-- pháp luật -->
+        <li class="custom-nav-item custom-dropdown">
+            <a class="custom-nav-link" href="#">Pháp luật</a>
+            <ul class="custom-dropdown-menu">
+                <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+            </ul>
+        </li>
+
+        <!-- Thể thao -->
+        <li class="custom-nav-item custom-dropdown">
+            <a class="custom-nav-link" href="#">Thể thao</a>
+            <ul class="custom-dropdown-menu">
+                <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+            </ul>
+        </li>
+        <!-- giải trí-->
+        <li class="custom-nav-item custom-dropdown">
+            <a class="custom-nav-link" href="#">Giải trí</a>
+            <ul class="custom-dropdown-menu">
+                <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+            </ul>
+        </li>
+        <!--du lịch-->
+        <li class="custom-nav-item custom-dropdown">
+            <a class="custom-nav-link" href="#">Du lịch</a>
+            <ul class="custom-dropdown-menu">
+                <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+            </ul>
+        </li>
+        <!-- game -->
+        <li class="custom-nav-item custom-dropdown">
+            <a class="custom-nav-link" href="#">Game</a>
+            <ul class="custom-dropdown-menu">
+                <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+            </ul>
+        </li>
+        <!-- giáo dục -->
+        <li class="custom-nav-item custom-dropdown">
+            <a class="custom-nav-link" href="#">Giáo dục</a>
+            <ul class="custom-dropdown-menu">
+                <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+            </ul>
+        </li>
+        <!-- sức khỏe -->
+        <li class="custom-nav-item custom-dropdown">
+            <a class="custom-nav-link" href="#">Sức khỏe</a>
+            <ul class="custom-dropdown-menu">
+                <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+            </ul>
+        </li>
+        <!-- khoa học -->
+        <li class="custom-nav-item custom-dropdown">
+            <a class="custom-nav-link" href="#">khoa học</a>
+            <ul class="custom-dropdown-menu">
+                <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+            </ul>
+        </li>
+
+        <!-- Three Lines Icon -->
+        <li class="custom-nav-item">
+            <a class="custom-nav-link" href="#">
+                <i class="bi bi-list"></i> 
+            </a>
+                <ul class="custom-dropdown-menu">
+                    <li><a class="custom-dropdown-item" href="#">Thời sự</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Thế giới</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Video</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Podcasts</a></li>
+                    <li><a class="custom-dropdown-item" href="#">KInh doanh</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Pháp luật</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Thể thao</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Giải trí</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Du lịch</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Game</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Giáo dục</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Sức khỏe</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Khoa học</a></li>
+
+                </ul>
+           
+        </li>
+    </ul>
+    </div>
+</nav>
+</div>
+
+    
+    <div class="container-lg  custom-container ">
+        <div class="row ">
+            <div class="col-md-1">
+                 <!-- Facebook Icon -->
+                  <div class="">
+                 <a href="#" class="social-icon mb-2">
+                    <img src="https://img.icons8.com/ios/50/000000/facebook-new.png" alt="Facebook"  style="width: 30px; height: 30px;">
+                </a>
+                </div>
+                <!-- Zalo Icon -->
+                 <div class="mt-2">
+                <a href="#" class="social-icon mb-2">
+                    <img src="https://img.icons8.com/ios/48/000000/zalo.png" alt="Zalo"  style="width: 30px; height: 30px;">
+                </a>
+                </div>
+                <!-- Messenger Icon -->
+                 <div class="mt-2">
+                <a href="#" class="social-icon mb-2">
+                    <img src="https://img.icons8.com/ios/50/000000/facebook-messenger.png" alt="Messenger"  style="width: 30px; height: 30px;">
+                </a>
+                </div>
+                <!-- Instagram Icon -->
+                 <div class="mt-2">
+                <a href="#" class="social-icon">
+                    <img src="https://img.icons8.com/ios/50/000000/instagram-new.png" alt="Instagram"  style="width: 30px; height: 30px;">
+                </a>
+                </div>
+            </div>
+            <!--nội dung-->
+            <div class="col-md-8">
+                <!--tiêu dề-->
+                <div class="">
+                    <h2 class="">4 người chết, 78 người bị thương do bão số 3</h2>
+                </div>
+                <!--Nội dung 1-->
+                <div class="">
+                    <p class="">Tính đến 17h chiều 7-9, bão số 3 đã làm người 4 người chết (Quảng Ninh 3 người và Hải Dương 1 người) và 78 người bị thương.</p>
+                </div>
+                <!--Ảnh-->
+                <div class="">
+                    <img src="https://cdn.tuoitre.vn/thumb_w/1200/471584752817336320/2024/9/7/vnapotalbacgianglucluongconganhotronguoidankhacphuchauquadobao7579536-1725721766091536162388.jpeg" alt="" class="img-fluid w-90" style="height:600px;">
+                </div>
+                <!--Nội dung 2-->
+                <div class="">
+                    <p class="">Tối 7-9, Bộ Công an cho biết cơ quan này đã thường xuyên cập nhật thông tin về bão số 3 để chỉ đạo, tổ chức quyết liệt công tác ứng phó.
+
+                        Tinh thần hành động là chủ động phòng ngừa, ứng phó ở mức cao nhất, không chủ quan, mất cảnh giác, không để bị động, bất ngờ, đảm bảo an toàn tính mạng người dân, nhất là đối với trẻ em và các đối tượng yếu thế, giảm thiểu thấp nhất thiệt hại về tài sản.
+                        Bộ Công an đã ban hành 3 công điện và tổ chức họp trực tuyến để chỉ đạo các đơn vị trực thuộc và công an 35 địa phương. Lãnh đạo Bộ Công an và lãnh đạo công an các đơn vị, địa phương đã trực tiếp xuống các địa bàn trọng điểm để chỉ đạo, kiểm tra.
+
+                        Trong những ngày bão số 3 ảnh hưởng, lực lượng công an ứng trực 100% quân số tại các địa bàn chịu ảnh hưởng trực tiếp, khu vực xung yếu để sẵn sàng triển khai các biện pháp, xử lý kịp thời các tình huống.
+                        
+                        Đến nay, Bộ Công an huy động hơn 100.000 người tham gia trực, ứng trực phòng chống bão số 3 và mưa, lũ. Chuẩn bị hơn 27.000 phương tiện bộ, hơn 2.200 phương tiện thủy, gần 100.000 áo phao, phao tròn các loại và hàng ngàn thiết bị chuyên dụng khác nhằm tổ chức cứu hộ, cứu nạn và hỗ trợ người dân khắc phục hậu quả sau bão.</p>
+                </div>
+                <!--Bình luận-->
+                <div class="mb-5">
+                    <div class="row w-100">
+                        
+                            <div class="comment-container ">
+                                <h5>Bình luận:</h5>
+                                <textarea class="form-control comment-box" placeholder="Nhập bình luận của bạn ở đây..."  style="height: 100px"></textarea>
+                                <button type="button" class="button-comment mt-3" style="width:100px; height: 30px">
+                                    Gửi <i class="bi bi-send"></i>
+                                </button>
+                            </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-light pt-5 border-top border-2 border-dark">
+        <div class="container">
+            <div class="row">
+                <!-- Thời sự -->
+                <div class="col-md-2">
+                    <h5>Thời sự</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-muted" href="#">Quốc hội</a></li>
+                        <li><a class="text-muted" href="#">An toàn giao thông</a></li>
+                        <li><a class="text-muted" href="#">Môi trường</a></li>
+                        <li><a class="text-muted" href="#">BHXH-BHYT</a></li>
+                        <li><a class="text-muted" href="#">Chống tham nhũng</a></li>
+                        <li><a class="text-muted" href="#">Quốc phòng</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Thế giới -->
+                <div class="col-md-2">
+                    <h5>Thế giới</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-muted" href="#">Bình luận quốc tế</a></li>
+                        <li><a class="text-muted" href="#">Chân dung</a></li>
+                        <li><a class="text-muted" href="#">Hồ sơ</a></li>
+                        <li><a class="text-muted" href="#">Thế giới đó đây</a></li>
+                        <li><a class="text-muted" href="#">Việt Nam và thế giới</a></li>
+                        <li><a class="text-muted" href="#">Quân sự</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Video -->
+                <div class="col-md-2">
+                    <h5>Video</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-muted" href="#">Thời sự</a></li>
+                        <li><a class="text-muted" href="#">Nhịp sống</a></li>
+                        <li><a class="text-muted" href="#">Food</a></li>
+                        <li><a class="text-muted" href="#">Pháp luật</a></li>
+                        <li><a class="text-muted" href="#">Giải trí</a></li>
+                        <li><a class="text-muted" href="#">Thế giới</a></li>
+                        <li><a class="text-muted" href="#">Khoa học</a></li>
+                        <li><a class="text-muted" href="#">Thể thao</a></li>
+                        <li><a class="text-muted" href="#">Giáo dục</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Podcasts -->
+                <div class="col-md-2">
+                    <h5>Podcasts</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-muted" href="#">Tâm điểm kinh tế</a></li>
+                        <li><a class="text-muted" href="#">Tài chính cá nhân</a></li>
+                        <li><a class="text-muted" href="#">Giải mã</a></li>
+                        <li><a class="text-muted" href="#">Tôi kể</a></li>
+                        <li><a class="text-muted" href="#">Bạn ổn không?</a></li>
+                        <li><a class="text-muted" href="#">Điểm tin</a></li>
+                        <li><a class="text-muted" href="#">Tiền làm gì?</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Kinh doanh -->
+                <div class="col-md-2">
+                    <h5>Kinh doanh</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-muted" href="#">Net Zero</a></li>
+                        <li><a class="text-muted" href="#">Tài chính</a></li>
+                        <li><a class="text-muted" href="#">Đầu tư</a></li>
+                        <li><a class="text-muted" href="#">Thị trường</a></li>
+                        <li><a class="text-muted" href="#">Doanh nhân</a></li>
+                        <li><a class="text-muted" href="#">Tư vấn tài chính</a></li>
+                        <li><a class="text-muted" href="#">Chuyển động kinh tế số</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Khoa học -->
+                <div class="col-md-2">
+                    <h5>Khoa học</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-muted" href="#">Khoa học trong nước</a></li>
+                        <li><a class="text-muted" href="#">Chỉ số PII</a></li>
+                        <li><a class="text-muted" href="#">Tin tức</a></li>
+                        <li><a class="text-muted" href="#">Phát minh</a></li>
+                        <li><a class="text-muted" href="#">Ứng dụng</a></li>
+                        <li><a class="text-muted" href="#">Thế giới tự nhiên</a></li>
+                        <li><a class="text-muted" href="#">Thưởng thức</a></li>
+                        <li><a class="text-muted" href="#">AI4VN 2024</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <p class="text-muted mb-0">&copy; 2024 Vietnews online</p>
+                    <p class="text-muted">
+                        <a href="#" class="text-muted">Contact Us</a> |
+                        <a href="#" class="text-muted">Privacy Policy</a> |
+                        <a href="#" class="text-muted">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="JAVASCRIPT.js"></script>
+
+</body>
+</html>

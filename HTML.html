@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="CSS.css">
+    <link rel="stylesheet" href="base.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class=" border-bottom border-2 ">
+        <div  class="cod-md-12 carousel slide mt-3 " data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner">
+              <!-- Quảng cáo 1 -->
+              <div class="carousel-item active">
+                <img src="https://dienmaythienphu.vn/wp-content/uploads/2023/12/cong-trinh-pc-14122023.jpg" class="img-fluid w-100" style=" height: 220px" alt="Quảng cáo 1">
+              </div>
+              <!-- Quảng cáo 2 -->
+              <div class="carousel-item">
+                <img src="https://dienmaythienphu.vn/wp-content/uploads/2023/02/cong-trinh-pc-4122023.jpg" class="img-fluid w-100" style=" height: 220px" alt="Quảng cáo 2">
+              </div>
+            </div>
+            <!-- Điều khiển carousel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        
+          <div class="container-lg p-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <!-- Logo/Title -->
+                <div class="d-flex align-items-center">
+                    <img src="img/logo.png" alt="Fact Check" class="img-fluid" style="width: 250px; height: 70px; object-fit: cover;">
+                    <div class="ms-3">
+                        <div id="datetime" class="text-muted"></div> <!-- Date and time will be displayed here -->
+                        <div id="location" class="text-muted"></div>  <!-- Location will be displayed here -->
+                    </div>
+                </div>
+        
+                <!-- Search Bar -->
+                <div class="d-flex align-items-center flex-grow-1 mx-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Tìm kiếm..." aria-label="Tìm kiếm">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <i class="bi bi-search"></i> <!-- Search Icon -->
+                        </button>
+                    </div>
+                </div>
+        
+                <!-- Language Switcher and Buttons -->
+                <div class="d-flex align-items-center">
+                    <a href="#" class="me-2 text-decoration-none link-with-divider language-link us-english">
+                        <img src="img/usa-flag.png" alt="US Flag" class="flag-icon"> US
+                    </a>
+                    <a href="#" class="me-2 text-decoration-none link-with-divider language-link vn-vietnam">
+                        <img src="img/vn.png" alt="Vietnam Flag" class="flag-icon"> VN
+                    </a>
+                    <div class="d-flex">
+                        <a href="#" class="me-2 text-decoration-none link-with-divider register-link" onclick="openLoginModal()">Đăng nhập</a>
+                        <a href="#" class="text-decoration-none login-link" onclick="openregisterModal()">Đăng ký</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </header>
+    
+<!-- Navigation Menu -->
+<div class="custom-container-menu" id="scrollElement">
+    <nav class="custom-navbar scroll-element" >
+        <div class="custom-navbar-wrapper"> 
+        <ul class="custom-navbar-nav">
+            <!-- Home icon -->
+            <li class="custom-nav-item">
+                <a class="custom-nav-link" href="#">
+                    <i class="bi bi-house-door"></i> 
+                </a>
+            </li>
+            <li class="custom-nav-item">
+                <a class="custom-nav-link" href="#">
+                    Trang chủ
+                </a>
+            </li>
+
+            <!-- Thời sự -->
+            <li class="custom-nav-item custom-dropdown">
+                <a class="custom-nav-link" href="#">Thời sự</a>
+                <ul class="custom-dropdown-menu">
+                    <li><a class="custom-dropdown-item" href="#">Quốc hội</a></li>
+                    <li><a class="custom-dropdown-item" href="#">An toàn giao thông</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Môi trường</a></li>
+                    <li><a class="custom-dropdown-item" href="#">BHXH-BHYT</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Chống tham nhũng</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Quốc phòng</a></li>
+                </ul>
+            </li>
+
+            <!-- Thế giới -->
+            <li class="custom-nav-item custom-dropdown">
+                <a class="custom-nav-link" href="#">Thế giới</a>
+                <ul class="custom-dropdown-menu">
+                    <li><a class="custom-dropdown-item" href="#">Bình luận quốc tế</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Chân dung</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Hồ sơ</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Thế giới đó đây</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Việt Nam và thế giới</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Quân sự</a></li>
+                </ul>
+            </li>
+
+            <!-- Video -->
+            <li class="custom-nav-item custom-dropdown">
+                <a class="custom-nav-link" href="#">Video</a>
+                <ul class="custom-dropdown-menu">
+                    <li><a class="custom-dropdown-item" href="#">Thời sự</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Nhịp sống</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Food</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Pháp luật</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Giải trí</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Thế giới</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Khoa học</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Thể thao</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Giáo dục</a></li>
+                </ul>
+            </li>
+
+            <!-- Podcasts -->
+            <li class="custom-nav-item custom-dropdown">
+                <a class="custom-nav-link" href="#">Podcasts</a>
+                <ul class="custom-dropdown-menu">
+                    <li><a class="custom-dropdown-item" href="#">Hôm nay</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tâm điểm kinh tế</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tài chính cá nhân</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Giải mã</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Hộp đen</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Thảm thi</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tôi kể</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Bạn ổn không?</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Điểm tin</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tiền làm gì?</a></li>
+                </ul>
+            </li>
+
+            <!-- Kinh doanh -->
+            <li class="custom-nav-item custom-dropdown">
+                <a class="custom-nav-link" href="#">Kinh doanh</a>
+                <ul class="custom-dropdown-menu">
+                    <li><a class="custom-dropdown-item" href="#">Net Zero</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tài chính</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Đầu tư</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Thị trường</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Doanh nhân</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tư vấn tài chính</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Chuyển động kinh tế số</a></li>
+                </ul>
+            </li>
+            <!-- pháp luật -->
+            <li class="custom-nav-item custom-dropdown">
+                <a class="custom-nav-link" href="#">Pháp luật</a>
+                <ul class="custom-dropdown-menu">
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+                </ul>
+            </li>
+
+            <!-- Thể thao -->
+            <li class="custom-nav-item custom-dropdown">
+                <a class="custom-nav-link" href="#">Thể thao</a>
+                <ul class="custom-dropdown-menu">
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+                </ul>
+            </li>
+            <!-- giải trí-->
+            <li class="custom-nav-item custom-dropdown">
+                <a class="custom-nav-link" href="#">Giải trí</a>
+                <ul class="custom-dropdown-menu">
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+                </ul>
+            </li>
+            <!--du lịch-->
+            <li class="custom-nav-item custom-dropdown">
+                <a class="custom-nav-link" href="#">Du lịch</a>
+                <ul class="custom-dropdown-menu">
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+                </ul>
+            </li>
+            <!-- game -->
+            <li class="custom-nav-item custom-dropdown">
+                <a class="custom-nav-link" href="#">Game</a>
+                <ul class="custom-dropdown-menu">
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+                </ul>
+            </li>
+            <!-- giáo dục -->
+            <li class="custom-nav-item custom-dropdown">
+                <a class="custom-nav-link" href="#">Giáo dục</a>
+                <ul class="custom-dropdown-menu">
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+                </ul>
+            </li>
+            <!-- sức khỏe -->
+            <li class="custom-nav-item custom-dropdown">
+                <a class="custom-nav-link" href="#">Sức khỏe</a>
+                <ul class="custom-dropdown-menu">
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+                </ul>
+            </li>
+            <!-- khoa học -->
+            <li class="custom-nav-item custom-dropdown">
+                <a class="custom-nav-link" href="#">khoa học</a>
+                <ul class="custom-dropdown-menu">
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá Việt Nam</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Bóng đá quốc tế</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Hậu trường</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Các môn khác</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tường thuật trực tiếp</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Dữ liệu bóng đá</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Tin chuyển nhượng</a></li>
+                    <li><a class="custom-dropdown-item" href="#">Video thể thao</a></li>
+                </ul>
+            </li>
+
+            <!-- Three Lines Icon -->
+            <li class="custom-nav-item">
+                <a class="custom-nav-link" href="#">
+                    <i class="bi bi-list"></i> 
+                </a>
+                    <ul class="custom-dropdown-menu">
+                        <li><a class="custom-dropdown-item" href="#">Thời sự</a></li>
+                        <li><a class="custom-dropdown-item" href="#">Thế giới</a></li>
+                        <li><a class="custom-dropdown-item" href="#">Video</a></li>
+                        <li><a class="custom-dropdown-item" href="#">Podcasts</a></li>
+                        <li><a class="custom-dropdown-item" href="#">KInh doanh</a></li>
+                        <li><a class="custom-dropdown-item" href="#">Pháp luật</a></li>
+                        <li><a class="custom-dropdown-item" href="#">Thể thao</a></li>
+                        <li><a class="custom-dropdown-item" href="#">Giải trí</a></li>
+                        <li><a class="custom-dropdown-item" href="#">Du lịch</a></li>
+                        <li><a class="custom-dropdown-item" href="#">Game</a></li>
+                        <li><a class="custom-dropdown-item" href="#">Giáo dục</a></li>
+                        <li><a class="custom-dropdown-item" href="#">Sức khỏe</a></li>
+                        <li><a class="custom-dropdown-item" href="#">Khoa học</a></li>
+
+                    </ul>
+               
+            </li>
+        </ul>
+        </div>
+    </nav>
+</div>
+
+
+
+    
+    
+
+    <!-- Main Content -->
+    <div class="container-lg  custom-container ">
+        <div class="row border-bottom border-2">
+            <h2 class="header-title-body  mb-3">TIN NỔI BẬT</h2>
+             <!-- Side Articles -->
+<div class="d-flex">
+             <div class="col-md-3  " >
+                <div class=" ">
+                    <div class="  p-2">
+                        <div class=" d-flex align-items-center border-bottom border-2">
+                            <div class="col-md-4 d-flex justify-content-center mt-3 mb-3">
+                                <img src="https://image.bnews.vn/MediaUpload/Thumb/2024/09/07/165135-bi-thu-tinh-uy-nam-dinh-kiem-tra-cong-tac-phong-chong-bao-so-3.jpg" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                              </div>
+                            <div class="col-md-8 ms-2 mt-3">
+                              <p>Bão số 3: Bốn người tử vong, 78 người bị thương</p>
+                            </div>
+                            
+                          </div>
+                          <div class=" d-flex align-items-center border-bottom border-2">
+                            <div class="col-md-4 d-flex justify-content-center mt-3 mb-3">
+                                <img src="https://image.bnews.vn/MediaUpload/Thumb/2023/06/08/7fe848da-3082-4e25-b5bf-98df50131f9b-20230608190644.jpeg" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                              </div>
+                            <div class="col-md-8 ms-2 mt-3">
+                              <p>Bộ Công Thương thông tin về vận hành hồ chứa thủy điện</p>
+                            </div>
+                            
+                          </div>
+                          <div class=" d-flex align-items-center border-bottom border-2">
+                            <div class="col-md-4 d-flex justify-content-center mt-3 mb-3">
+                                <img src="https://image.bnews.vn/MediaUpload/Thumb/2024/09/07/204750-bao-so-3-do-bo-vao-ha-noi-mua-lon-kem-gio-giat-manh.jpg" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                              </div>
+                            <div class="col-md-8 ms-2 mt-3">
+                              <p>Bão số 3 đổ bộ vào Hà Nội, mưa lớn kèm gió giật mạnh</p>
+                            </div>
+                            
+                          </div>
+                          
+                          <div class=" d-flex align-items-center border-bottom border-2">
+                            <div class="col-md-4 d-flex justify-content-center mt-3 mb-3">
+                                <img src="https://i1-vnexpress.vnecdn.net/2024/08/22/open-id-1724316702-jpg-6417-1724317184.png?w=1020&h=0&q=100&dpr=1&fit=crop&s=NIMhMyAw6Wji4STcIUoNpA" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                              </div>
+                            <div class="col-md-8 ms-2 mt-3">
+                              <p>Từ tiếng Việt nào phát âm sai thì đúng, đúng thì sai?</p>
+                            </div>
+                            
+                          </div>
+                          <div class="d-flex align-items-center ">
+                            <div class="col-md-4 d-flex justify-content-center mt-3">
+                                <img src="https://i1-vnexpress.vnecdn.net/2024/08/23/calero-felipe-kyzB-1200x840-To-5168-8207-1724380288.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=HFD75cNGfu6ZV6ZjC6Fgdw" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                              </div>
+                            <div class="col-md-8 ms-2 mt-3">
+                              <p>'Người hùng nhập cư' cứu em bé kẹt trên lan can</p>
+                            </div>
+                            
+                          </div>
+                          
+                           
+                      </div>
+                      </div>
+               
+            </div>   
+            <!-- Main Article -->
+            <div class="col-md-6  main-article " >
+                <div class=" p-4">
+                            <img src="https://image.bnews.vn/MediaUpload/Medium/2024/09/07/204750-bao-so-3-do-bo-vao-ha-noi-mua-lon-kem-gio-giat-manh.jpg" alt="" class="img-fluid w-100 mb-3" style="height: 400px; object-fit: cover;">
+                            <div class="mt-3">
+                                <a href="#" class="text-dark fw-bold text-decoration-none">
+                                    Bão số 3 đổ bộ vào Hà Nội, mưa lớn kèm gió giật mạnh
+                                </a>
+                                <p class="text-muted">
+                                    Tối 7/9/2024, bão số 3 tiến sâu vào đất liền các tỉnh phía Bắc, trong đó có Thủ đô Hà Nội, gây mưa to, gió giật mạnh làm nhiều tuyến phố ngập cục bộ, cây cối tiếp tục gãy đổ hàng loạt.
+                                </p>
+                            </div>
+                        </div>
+            </div>
+            <div class="col-md-3 mt-4">
+                            <div class=" border-bottom ">
+                                <div class="me-3">
+                                    <img src="https://image.bnews.vn/MediaUpload/Medium/2024/08/19/noi-bai-18821n-20240819191315.jpg" alt="Main News Image" class="img-fluid w-100" style="height: 200px; object-fit: cover;">
+                                    <div class="mt-3">
+                                        <p class=" fw-bold">Tăng thời gian đóng cửa 3 sân bay để ứng phó bão số 3</p>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="mt-3">
+                                <div class="me-3">
+                                    <img src="https://image.bnews.vn/MediaUpload/Medium/2024/09/07/184902-hop-bao-chinh-phu-thuong-ky-thang-8-nam-2024.jpg" alt="Main News Image" class="img-fluid w-100" style="height: 200px; object-fit: cover;">
+                                    <div class="mt-3">
+                                        <p class=" fw-bold">Giải đáp nguyên nhân đấu giá đất cao gấp nhiều lần giá khởi điểm</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                    </div>
+                </div>
+                
+           
+<!--thế giới-->    
+<div class="row">        
+            <div class=" col-md-9 p-3">
+                <h2 class="header-title-body mb-3">THẾ GIỚI</h2>
+            <div class=" content-wrapper ">
+               
+                <div class=" d-flex">
+                    <div class="col-md-6  ">
+                        <div class="me-3">
+                            <img src="https://cdnphoto.dantri.com.vn/LqNVxq2SDsmJMcd62xfRczVSfaY=/zoom/774_516/2024/08/29/xe1-crop-1724926716939.jpeg" alt="Main News Image" class="img-fluid w-100" style="height: 200px; object-fit: cover;">
+                            <div class="mt-3">
+                                <h5 class="">Bí ẩn ký tự trên xe quân sự Belarus triển khai sát biên giới Ukraine</h5>
+                                <p class="text-muted">Các phương tiên quân sự mà Belarus điều động đến gần biên giới Ukraine đã lần đầu tiên được đánh dấu bằng ký tự "B".</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="d-flex align-items-center ">
+                            <div class="col-md-4 d-flex justify-content-center mb-2 ">
+                                <img src="https://cdnphoto.dantri.com.vn/wIE1qluJ5c4FF4TkCjsB_F74RtM=/zoom/279_186/2024/08/29/baoreuters11zon-crop-1724915600629.jpeg" alt="News 3" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
+                            </div>     
+                            <div class="col-md-8  p-2 ">
+                                <p class="fw-bold">Nhật Bản hối thúc 4 triệu dân sơ tán, đề phòng thảm họa do bão mạnh</p>
+                            </div>
+                                             
+                         </div>
+                         <div class="d-flex align-items-center mt-2">
+                            <div class="col-md-4 d-flex justify-content-center mb-2 ">
+                                <img src="https://cdnphoto.dantri.com.vn/V8spTz0qXCFhUa6dK2vVtxfQ7IA=/zoom/279_186/2024/08/29/kursk-bridge-top-crop-1724917171306.jpeg" alt="News 3" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
+                            </div>   
+                            <div class="col-md-8  p-2 ">
+                                <p class="fw-bold">Ukraine tấn công mục tiêu mới ở Kursk ngăn Nga giành lại lãnh thổ</p>
+                            </div>
+                                               
+                         </div>
+                         <div class="d-flex align-items-center mt-2">
+                            <div class="col-md-4 d-flex justify-content-center  ">
+                                <img src="https://cdnphoto.dantri.com.vn/6BSOWV93MKave3KXY8j-47ofJUw=/zoom/378_252/2024/08/29/bqp-ngax-crop-1724934376540.jpeg" alt="News 3" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
+                            </div>   
+                            <div class="col-md-8  p-2 ">
+                                <p class="fw-bold">Nga bắt cựu Thứ trưởng quốc phòng</p>
+                            </div>
+                                                
+                         </div>
+                    </div>
+                </div>
+               
+        </div>
+</div>   
+</div>
+
+<!--qc1-->
+<div  class="cod-md-12 carousel slide mt-3 " data-bs-ride="carousel" data-bs-interval="2000">
+    <div class="carousel-inner">
+      <!-- Quảng cáo 1 -->
+      <div class="carousel-item active">
+        <img src="https://cdn.nhathuoclongchau.com.vn/unsafe/1920x0/filters:quality(90)/https://cms-prod.s3-sgn09.fptcloud.com/Top_Banner_PC_1440x414_3_6c6477a102.png" class="d-block w-100" style=" height: 260px" alt="Quảng cáo 1">
+      </div>
+      <!-- Quảng cáo 2 -->
+      <div class="carousel-item">
+        <img src="https://www.vlance.vn/uploads/portfolio/view/a0ccbd99baf95a690bcd2be87fc684b84bcb97551.png" class="d-block w-100" style=" height: 260px" alt="Quảng cáo 2">
+      </div>
+    </div>
+    <!-- Điều khiển carousel -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+<!--THỜI SỰ-->
+  <div class="row d-flex border-bottom border-2 border-dark"> 
+    <div class="col-md-4">
+        <div class="mt-4">
+            <div class=" d-flex align-items-center border-bottom border-2">
+                <div class="col-md-4 d-flex justify-content-center mt-2 mb-3">
+                    <img src="https://images2.thanhnien.vn/zoom/328_205/528068263637045248/2024/9/7/17a-online-17257172493321017394044-14-0-654-1024-crop-17257172733671586266304.jpg" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                  </div>
+                <div class="col-md-8 p-2">
+                  <p>Lựa chọn, bảo quản bánh trung thu thế nào cho an toàn?</p>
+                </div>
+                
+              </div>
+              <div class=" d-flex align-items-center border-bottom border-2">
+                <div class="col-md-4 d-flex justify-content-center mt-3 mb-3">
+                    <img src="https://images2.thanhnien.vn/zoom/328_205/528068263637045248/2024/9/8/anh1-1725764752868450513912-237-0-1487-2000-crop-1725764770511796046034.jpg" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                  </div>
+                <div class="col-md-8 p-2">
+                  <p>Thanh niên tình nguyện tham gia khắc phục hậu quả bão Yagi</p>
+                </div>
+                
+              </div>
+              <div class=" d-flex align-items-center border-bottom border-2">
+                <div class="col-md-4 d-flex justify-content-center mt-3 mb-3">
+                    <img src="https://images2.thanhnien.vn/zoom/328_205/528068263637045248/2024/9/7/z5807771955411d5c7c855d08c0444b348bcaf7a0c963c-1725724193519827046948-40-0-840-1280-crop-17257242244941830442781.jpg" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                  </div>
+                <div class="col-md-8 p-2">
+                  <p>Đồng Nai: Tìm ra 9 đội vào vòng chung kết cuộc thi toàn quốc RoboG 2024</p>
+                </div>
+                
+              </div>
+              
+              <div class=" d-flex align-items-center border-bottom border-2">
+                <div class="col-md-4 d-flex justify-content-center mt-3 mb-3">
+                    <img src="https://cdnphoto.dantri.com.vn/e9qb8Pqdiej0xJzj9TlIRemi-fc=/zoom/351_234/2024/09/08/choc-ho-1725740423017.gif" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                  </div>
+                <div class="col-md-8 p-2">
+                  <p>Thế giới động vật: Cô gái suýt trả giá vì chọc tức hổ trong sở thú</p>
+                </div>
+                
+              </div>
+              <div class=" d-flex justify-content-center align-items-center border-bottom border-2">
+                <div class="col-md-9 mt-3 mb-3">
+                    <img src="https://s0.2mdn.net/simgad/16131390352067360117" alt="Fact Check" class="img-fluid w-100" style=" height: 250px; object-fit: cover;">
+                  </div>
+               
+              </div>
+              <div class=" d-flex align-items-center border-bottom border-2">
+                <div class="col-md-4 d-flex justify-content-center mt-3 mb-3">
+                    <img src="https://cdnphoto.dantri.com.vn/Vwwo6JmQIA71iz616kN9aIgw3jE=/zoom/351_234/2024/09/07/1-1-1725688604662.jpg" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                  </div>
+                <div class="col-md-8 p-2">
+                  <p>Tại sao giới nhà giàu không muốn con họ biết "nhà mình giàu"?</p>
+                </div>
+                
+              </div>
+              <div class=" d-flex align-items-center border-bottom border-2">
+                <div class="col-md-4 d-flex justify-content-center mt-3 mb-3">
+                    <img src="https://cdnphoto.dantri.com.vn/rJYl1mKFAFd1D78_KgD4dboO8TY=/zoom/351_234/2024/04/30/iphone-16-crop-1714487826450.jpeg" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                  </div>
+                <div class="col-md-8 p-2">
+                  <p>Điểm tuần: Hàng loạt tin tức mới về iPhone 16 trước ngày ra mắt</p>
+                </div>
+                
+              </div>
+              <div class=" d-flex align-items-center border-bottom border-2">
+                <div class="col-md-4 d-flex justify-content-center mt-3 mb-3">
+                    <img src="https://cdnphoto.dantri.com.vn/UFfYHO1pCH5xjIzXBqWRAoDQmC0=/zoom/351_234/2024/09/07/capture-crop-1725698122918.jpeg" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                  </div>
+                <div class="col-md-8 p-2">
+                  <p>Người mẹ gây phẫn nộ khi phạt con gái đi chân trần đến mức bỏng rát</p>
+                </div>
+                
+              </div>
+              <div class=" d-flex align-items-center border-bottom border-2">
+                <div class="col-md-4 d-flex justify-content-center mt-3 mb-3">
+                    <img src="https://cdnphoto.dantri.com.vn/xOA0oB_bup-Itq3igLPKNUgbviQ=/zoom/288_192/2024/09/07/tinh-huong-giao-thong-1725726902378.gif" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                  </div>
+                <div class="col-md-8 p-2">
+                  <p>Nổi bật tuần qua: Người đi xe máy thoát chết may mắn dưới bánh container</p>
+                </div>
+                
+              </div>
+              <div class=" d-flex align-items-center border-bottom border-2">
+                <div class="col-md-4 d-flex justify-content-center mt-3 mb-3">
+                    <img src="https://cdnphoto.dantri.com.vn/etR7W1meOuMZBHUvQtMt-IAMLso=/zoom/351_234/2024/09/08/fbimg1725731523283-crop-edited-1725731675061.jpeg" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                  </div>
+                <div class="col-md-8 p-2">
+                  <p>Cây bật gốc đè bẹp ô tô, chủ phương tiện có được yêu cầu bảo hiểm hỗ trợ?</p>
+                </div>
+                
+              </div>
+              <div class=" d-flex align-items-center border-bottom border-2">
+                <div class="col-md-4 d-flex justify-content-center mt-3 mb-3">
+                    <img src="https://cdnphoto.dantri.com.vn/uHnIgj-5SsSXFzAEntlo3lP-8Hs=/zoom/288_192/2024/09/08/clip-cuoi-tuan-1725731724423.gif" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                  </div>
+                <div class="col-md-8 p-2">
+                  <p>Clip "vụ giật điện thoại manh động và cái kết bất ngờ" nổi bật tuần qua</p>
+                </div>
+                
+              </div>
+              <div class=" d-flex align-items-center border-bottom border-2">
+                <div class="col-md-4 d-flex justify-content-center mt-3 mb-3">
+                    <img src="https://cdnphoto.dantri.com.vn/jAyVqbLFwlkyUp1FvJV4gLMDQmA=/zoom/351_234/2024/09/05/thumb-1725530574024.jpg" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                  </div>
+                <div class="col-md-8 p-2">
+                  <p>Nỗ lực "Liverpool hóa Man Utd" và thất bại của Erik Ten Hag</p>
+                </div>
+                
+              </div>
+              <div class=" d-flex align-items-center border-bottom border-2">
+                <div class="col-md-4 d-flex justify-content-center mt-3 mb-3">
+                    <img src="https://cdnphoto.dantri.com.vn/KoAtlXmqGJHb5xJOW069_QKFivg=/zoom/396_264/2024/09/07/nha-hang-o-con-dao-bi-phat-65-trieu-dong-vi-kinh-doanh-2-loai-oc-quy-hiem-crop-1725704060863.jpeg" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                  </div>
+                <div class="col-md-8 p-2">
+                  <p>Nhà hàng ở Côn Đảo bị phạt 65 triệu đồng vì kinh doanh 2 loại ốc quý hiếm</p>
+                </div>
+                
+              </div>
+
+              <div class="d-flex align-items-center ">
+                <div class="col-md-4 d-flex justify-content-center mt-3">
+                    <img src="https://cdnphoto.dantri.com.vn/66EfNPh2SBrud5GEeZOAuPoywC8=/zoom/351_234/2024/09/08/z5808347740061b6a4765997ed1d187ca76e6865e22e7c-edited-1725759520352.jpeg" alt="Fact Check" class="img-fluid" style="width: 100px; height: 80px; object-fit: cover;">
+                  </div>
+                <div class="col-md-8 p-2">
+                  <p>Hai học sinh tiểu học đuối nước tử vong trên sông</p>
+                </div>
+                
+              </div>
+              <div class=" d-flex justify-content-center align-items-center">
+                <div class="col-md-11 mt-3 mb-3">
+                    <img src="https://tpc.googlesyndication.com/simgad/2456840916605220645" alt="Fact Check" class="img-fluid w-100" style=" height: 550px; object-fit: cover;">
+                  </div>
+               
+              </div>
+              
+               
+          </div>
+         
+   
+</div>        
+<div class=" col-md-8 p-3">
+    <h2 class="header-title-body ms-5 mt-3">THỜI SỰ</h2>
+        <div class="border-start ps-5">
+    <div class=" content-wrapper border-bottom mt-3">
+       
+        <div class=" d-flex">
+            <div class="col-md-6  ">
+                <div class="me-3">
+                    <img src="https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/8/23/camera3-1078.jpg?width=550&s=MRwbSlQEv0XesO3O2agXcQ" alt="Main News Image" class="img-fluid w-100" style="height: 200px; object-fit: cover;">
+                    <div class="mt-3">
+                        <h5 class="">Bộ Công an đề xuất camera giám sát giao thông phải nhìn rõ mặt tài xế, biển số</h5>
+                        <p class="text-muted">Bộ Công an đang lấy ý kiến đóng góp cho dự thảo tiêu chuẩn quốc gia về hệ thống chỉ huy điều hành, giám sát, xử lý vi phạm trật tự, an toàn giao thông.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 ">
+                <div class="d-flex align-items-center ">
+                    <div class="col-md-4 d-flex justify-content-center mb-2 ">
+                        <img src="https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/8/23/w-454825011-1153112479125362-1155252515344963100-n-932.jpg?width=0&s=IQyQKhcnn6LSbYl0MpeohA" alt="News 3" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
+                    </div>     
+                    <div class="col-md-8  p-2 ">
+                        <p class="fw-bold">Giữa đêm Hà Nội ngập úng, lượng mưa đến 138mm</p>
+                    </div>
+                                     
+                 </div>
+                 <div class="d-flex align-items-center mt-2">
+                    <div class="col-md-4 d-flex justify-content-center mb-2 ">
+                        <img src="https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/8/23/mua-nhu-trut-nuoc-hon-1-1048.jpeg?width=360&s=CxdWbxVRXDB81Z8cHptM9g" alt="News 3" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
+                    </div>   
+                    <div class="col-md-8  p-2 ">
+                        <p class="fw-bold">Mưa như trút nước, hơn 1.000 cú sét giáng xuống Bắc Bộ trong đêm qua</p>
+                    </div>
+                                       
+                 </div>
+                 <div class="d-flex align-items-center mt-2">
+                    <div class="col-md-4 d-flex justify-content-center  ">
+                        <img src="https://images2.thanhnien.vn/zoom/462_288/528068263637045248/2024/9/7/edit-edit-go-vap-17257213535011009541629-76-0-1676-2560-crop-172572141134728580829.jpeg" alt="News 3" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
+                    </div>   
+                    <div class="col-md-8  p-2 ">
+                        <p class="fw-bold">Vụ Mái ấm Hoa Hồng: Bước đầu ghi nhận 10 trường hợp ‘trẻ em sinh trẻ em’</p>
+                    </div>
+                                        
+                 </div>
+            </div>
+        </div>
+       
+</div>
+
+<!--PHAT LUẬT-->
+<h2 class="header-title-body mt-3">PHÁP LUẬT</h2>
+<div class=" content-wrapper border-bottom mt-3">
+   
+    <div class="d-flex mb-3">
+        <div class="col-md-6  ">
+            <div class="me-3">
+                <img src="https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/8/23/bicao-58.jpg?width=550&s=5VR8Y4fjyWs41qYRzn8oaA" alt="Main News Image" class="img-fluid w-100" style="height: 200px; object-fit: cover;">
+                <div class="mt-3">
+                    <h5 class="">Đại án đăng kiểm: Tuyên án 254 bị cáo</h5>
+                    <p class="text-muted">Bộ Công an đang lấy ý kiến đóng góp cho dự thảo tiêu chuẩn quốc gia về hệ thống chỉ huy điều hành, giám sát, xử lý vi phạm trật tự, an toàn giao thông.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 ">
+            <div class="d-flex align-items-center ">
+                <div class="col-md-4 d-flex justify-content-center mb-2 ">
+                    <img src="https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/8/22/tuyen-an-tu-hinh-3-doi-tuong-buon-ban-ma-tuy-xuyen-bien-gioi-2911.jpg?width=360&s=jVAdUYC0zc4bs2u_lINSpA" alt="News 3" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
+                </div>     
+                <div class="col-md-8  p-2 ">
+                    <p class="fw-bold">Tuyên án tử hình 3 đối tượng buôn bán ma túy xuyên biên giới</p>
+                </div>
+                                 
+             </div>
+             <div class="d-flex align-items-center mt-2">
+                <div class="col-md-4 d-flex justify-content-center mb-2 ">
+                    <img src="https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/8/22/nguoi-tu-xung-su-thay-thich-tam-phuc-khang-cao-xin-giam-nhe-hinh-phat-808.jpg?width=360&s=BO4Xr63JcWRGwp-nbTyUIQ" alt="News 3" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
+                </div>   
+                <div class="col-md-8  p-2 ">
+                    <p class="fw-bold">Người tự xưng 'sư thầy Thích Tâm Phúc' kháng cáo xin giảm nhẹ hình phạt</p>
+                </div>
+                                   
+             </div>
+             <div class="d-flex align-items-center mt-2">
+                <div class="col-md-4 d-flex justify-content-center  ">
+                    <img src="https://cdnphoto.dantri.com.vn/63lX_EzsRfTPCBGM7_ltElyKzo4=/zoom/378_252/2024/09/06/e49f76c7-a5d0-496f-b2ed-fceea5048f4f-1725600148552.gif" alt="News 3" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
+                </div>   
+                <div class="col-md-8  p-2 ">
+                    <p class="fw-bold">Vụ bà lão bị cướp 430 tờ vé số: Bắt giữ nghi phạm</p>
+                </div>
+                                    
+             </div>
+        </div>
+    </div>
+   
+</div>
+
+
+<!--kinh doanh-->
+<div class="row mt-3">
+    
+    <div class="col-md-12 ">
+        <div class=" content-wrapper border-bottom mt-3">
+        <div class="row mt-8  d-flex mb-3">
+            <!-- Cột thứ nhất -->
+            <div class="col-md-6 border-end ">
+                <h2 class=" mb-3 header-title-body">KINH DOANH</h2>
+                <!-- Phần bài viết đầu tiên -->
+                <div class="d-flex ">
+                    <div class="col-md-5 d-flex ">
+                        <img src="https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/8/22/hai-long-3389.jpeg?width=0&s=iKCB8fZi2G9qIc_lnxjNvA" alt="Fact Check" class="img-fluid" style="width: 150px; height: 100px; object-fit: cover;">
+                    </div>    
+                    <div class="col-md-7"  style="width: 200px; margin-left: 10px;">
+                        <a href="#" class="text-dark fw-bold text-decoration-none text-uppercase  ">
+                            Tuyển Việt Nam: HLV Kim Sang Sik không 'ngó lơ' với kép phụ
+                        </a>
+                                         
+                     </div>
+                                       
+                 </div>
+                <!-- Phần danh sách bài viết bên dưới -->
+                <ul class="list-unstyled mt-2">
+                    <li class="text-muted">Chịu chơi hơn MU, Liverpool vung 70 triệu bảng ký Branthaite</li>
+                    <li class="text-muted">Ten Hag gửi cảnh báo đánh thép đến dàn sao MU</li>
+                    <li class="text-muted">Dương Quốc Hoàng thua cựu vô địch thế giới, dừng bước tại US Championship 2024</li>
+                    <li class="text-muted">Chelsea thắng vất vả ở Conference League</li>
+                </ul> 
+            </div>
+ <!--khoa học-->           
+            <!-- Cột thứ hai -->
+            <div class="col-md-6 ">
+                <h2 class=" mb-3 header-title-body">KHOA HỌC</h2>
+                <div class="d-flex ">
+                    <div class="col-md-5 d-flex ">
+                        <img src="https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/8/23/nguoi-dan-ong-tre-voi-vao-vien-cap-cuu-vi-trot-cai-loi-bac-si-743.jpg?width=550&s=MpOm2F97ZPe2-4m9gb667Q" alt="Fact Check" class="img-fluid" style="width: 150px; height: 100px; object-fit: cover;">
+                    </div>    
+                    <div class="col-md-7"  style="width: 200px; margin-left: 10px;">
+                        <a href="#" class="text-dark fw-bold text-decoration-none text-uppercase  ">
+                            Người đàn ông trẻ vội vào viện cấp cứu vì trót cãi lời bác sĩ
+                        </a>
+                                         
+                     </div>
+                                       
+                 </div>
+                <!-- Phần danh sách bài viết bên dưới -->
+                <ul class="list-unstyled mt-2">
+                    <li class="text-muted">WHO công bố bệnh đậu mùa khỉ ‘khẩn cấp toàn cầu’, TPHCM ứng phó ra sao?</li>
+                    <li class="text-muted">Khả năng hồi phục của bé trai 6 tuổi đi lạc 4 ngày trong rừng</li>
+                    <li class="text-muted">Sự hồi sinh của chàng ca sĩ trẻ từng chìm sâu trong 'giấc ngủ đông' suốt 3 năm</li>
+                </ul> 
+               
+            </div>
+    </div>
+</div>
+</div>
+</div>
+
+<!--THỂ THAO-->
+<div class="row  mt-3">
+    <div class="col-md-12">
+        <div class=" content-wrapper border-bottom mt-3">
+        <div class="row mb-3 d-flex">
+            <!-- Cột thứ nhất -->
+            <div class="col-md-6 border-end ">
+                <h2 class=" mb-3 header-title-body">THỂ THAO</h2>
+                <!-- Phần bài viết đầu tiên -->
+                <div class="d-flex ">
+                    <div class="col-md-5 d-flex ">
+                        <img src="https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/8/22/hai-long-3389.jpeg?width=0&s=iKCB8fZi2G9qIc_lnxjNvA" alt="Fact Check" class="img-fluid" style="width: 150px; height: 100px; object-fit: cover;">
+                    </div>    
+                    <div class="col-md-7"  style="width: 200px; margin-left: 10px;">
+                        <a href="#" class="text-dark fw-bold text-decoration-none text-uppercase  ">
+                            Tuyển Việt Nam: HLV Kim Sang Sik không 'ngó lơ' với kép phụ
+                        </a>
+                                         
+                     </div>
+                                       
+                 </div>
+                <!-- Phần danh sách bài viết bên dưới -->
+                <ul class="list-unstyled mt-2">
+                    <li class="text-muted">Chịu chơi hơn MU, Liverpool vung 70 triệu bảng ký Branthaite</li>
+                    <li class="text-muted">Ten Hag gửi cảnh báo đánh thép đến dàn sao MU</li>
+                    <li class="text-muted">Dương Quốc Hoàng thua cựu vô địch thế giới, dừng bước tại US Championship 2024</li>
+                    <li class="text-muted">Chelsea thắng vất vả ở Conference League</li>
+                </ul> 
+            </div>
+ <!--sức khỏe-->           
+            <!-- Cột thứ hai -->
+            <div class="col-md-6 ">
+                <h2 class=" mb-3 header-title-body">SỨC KHỎE</h2>
+                <div class="d-flex ">
+                    <div class="col-md-5 d-flex ">
+                        <img src="https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/8/23/nguoi-dan-ong-tre-voi-vao-vien-cap-cuu-vi-trot-cai-loi-bac-si-743.jpg?width=550&s=MpOm2F97ZPe2-4m9gb667Q" alt="Fact Check" class="img-fluid" style="width: 150px; height: 100px; object-fit: cover;">
+                    </div>    
+                    <div class="col-md-7"  style="width: 200px; margin-left: 10px;">
+                        <a href="#" class="text-dark fw-bold text-decoration-none text-uppercase  ">
+                            Người đàn ông trẻ vội vào viện cấp cứu vì trót cãi lời bác sĩ
+                        </a>
+                                         
+                     </div>
+                                       
+                 </div>
+                <!-- Phần danh sách bài viết bên dưới -->
+                <ul class="list-unstyled mt-2">
+                    <li class="text-muted">WHO công bố bệnh đậu mùa khỉ ‘khẩn cấp toàn cầu’, TPHCM ứng phó ra sao?</li>
+                    <li class="text-muted">Khả năng hồi phục của bé trai 6 tuổi đi lạc 4 ngày trong rừng</li>
+                    <li class="text-muted">Sự hồi sinh của chàng ca sĩ trẻ từng chìm sâu trong 'giấc ngủ đông' suốt 3 năm</li>
+                </ul> 
+               
+            </div>
+    
+    </div>
+    </div>
+</div>
+</div>
+
+<!--GIẢI TRÍ-->
+        <div class="row  mt-3">
+            <div class="col-md-12">
+                <div class=" content-wrapper border-bottom mt-3">
+                <div class="row mb-3 d-flex">
+                   <!--giải trí-->            
+            <div class="col-md-6 border-end">
+                <h2 class="  mb-3 header-title-body">GIẢI TRÍ</h2>
+                <div class="d-flex ">
+                    <div class="col-md-5 d-flex ">
+                        <img src="https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/8/23/giang-vien-dung-sach-chua-xuat-ban-de-xet-thi-dua-rut-danh-hieu-neu-sai-pham-978.jpeg?width=260&s=nFw3zlq-HPN3_W25wT_dOA" alt="Fact Check" class="img-fluid" style="width: 150px; height: 100px; object-fit: cover;">
+                    </div>    
+                    <div class="col-md-7"  style="width: 200px; margin-left: 10px;">
+                        <a href="#" class="text-dark fw-bold text-decoration-none text-uppercase  ">
+                            Giảng viên dùng sách chưa xuất bản để xét thi đua: Rút danh hiệu nếu sai phạm
+                        </a>
+                                         
+                     </div>
+                                       
+                 </div>
+                <!-- Phần danh sách bài viết bên dưới -->
+                <ul class="list-unstyled mt-2">
+                    <li class="text-muted">Kỷ luật Phó Chủ tịch huyện ở Thanh Hóa do liên quan sai phạm tuyển sinh</li>
+                    <li class="text-muted">Trung Quốc cải thiện tình trạng ‘học tiếng Anh để thi’ như thế nào?</li>
+                    <li class="text-muted">Học phí ngành Quản trị kinh doanh phía Bắc từ 16 triệu đồng </li>
+                    <li class="text-muted">Hai nữ sinh cùng tên đều là thủ khoa ĐH Ngoại thương với bảng điểm toàn A</li>
+                </ul> 
+               
+            </div>
+        
+        <!--giáo dục-->            
+                    <div class="col-md-6">
+                        <h2 class="mb-3 header-title-body">GIÁO DỤC</h2>
+                        <div class="d-flex ">
+                            <div class="col-md-5 d-flex ">
+                                <img src="https://static-images.vnncdn.net/vps_images_publish/000001/000003/2024/8/23/giang-vien-dung-sach-chua-xuat-ban-de-xet-thi-dua-rut-danh-hieu-neu-sai-pham-978.jpeg?width=260&s=nFw3zlq-HPN3_W25wT_dOA" alt="Fact Check" class="img-fluid" style="width: 150px; height: 100px; object-fit: cover;">
+                            </div>    
+                            <div class="col-md-7"  style="width: 200px; margin-left: 10px;">
+                                <a href="#" class="text-dark fw-bold text-decoration-none text-uppercase  ">
+                                    Giảng viên dùng sách chưa xuất bản để xét thi đua: Rút danh hiệu nếu sai phạm
+                                </a>
+                                                 
+                             </div>
+                                               
+                         </div>
+                        <!-- Phần danh sách bài viết bên dưới -->
+                        <ul class="list-unstyled mt-2">
+                            <li class="text-muted">Kỷ luật Phó Chủ tịch huyện ở Thanh Hóa do liên quan sai phạm tuyển sinh</li>
+                            <li class="text-muted">Trung Quốc cải thiện tình trạng ‘học tiếng Anh để thi’ như thế nào?</li>
+                            <li class="text-muted">Học phí ngành Quản trị kinh doanh phía Bắc từ 16 triệu đồng </li>
+                            <li class="text-muted">Hai nữ sinh cùng tên đều là thủ khoa ĐH Ngoại thương với bảng điểm toàn A</li>
+                        </ul> 
+                       
+                    </div>
+                    
+            
+            </div>
+        </div>
+        </div>
+        </div>
+
+    
+<!--VIDEO-->
+<div class="row  mt-3 ">
+    <div class="col-md-12">
+        <div class="row mt-8 mb-3 d-flex">
+            <!-- Cột thứ nhất -->
+            <div class="col-md-6 border-end ">
+                <h2 class=" mb-3 header-title-body">VIDEO</h2>
+                <!-- Phần bài viết đầu tiên -->
+                <div class="d-flex ">
+                    <div class="col-md-5 d-flex">
+                        <iframe class="img-fluid" style="width: 150px; height: 100px; object-fit: cover;" 
+                            src="https://i1-vnexpress.vnecdn.net/2024/08/23/Top1-1724402168-7230-1724402176.gif?w=300&h=180&q=100&dpr=1&fit=crop&s=4ljRqdT-iCOUj7mHQ1Liuw&t=video" 
+                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                     
+                    <div class="col-md-7"  style="width: 200px; margin-left: 10px;">
+                        <a href="#" class="text-dark fw-bold text-decoration-none text-uppercase  ">
+                            Cô gái ngã nhào vì bị giật túi xách
+                        </a>
+                                         
+                     </div>
+                                       
+                 </div>
+                <!-- Phần danh sách bài viết bên dưới -->
+                <ul class="list-unstyled mt-2">
+                    <li class="text-muted">Nghi can cướp dây chuyền ở hai tiệm vàng trong 3 ngày</li>
+                    <li class="text-muted">Nuôi tôm công nghệ cao, lão nông lãi hơn 30 tỷ đồng mỗi năm                    </li>
+                    <li class="text-muted">Dương Quốc Hoàng thua cựu vô địch thế giới, dừng bước tại US Championship 2024</li>
+                    <li class="text-muted">Chelsea thắng vất vả ở Conference League</li>
+                </ul> 
+            </div>
+ <!--KHOA HỌC-->           
+            <!-- Cột thứ hai -->
+            <div class="col-md-6">
+                <h2 class=" mb-3 header-title-body">DU LỊCH</h2>
+                <div class="d-flex ">
+                    <div class="col-md-5 d-flex ">
+                        <img src="https://i1-dulich.vnecdn.net/2024/08/24/233A7532-1724456817.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=9XsJ0OAf6Wknv7twuAeqrA" alt="Fact Check" class="img-fluid" style="width: 150px; height: 100px; object-fit: cover;">
+                    </div>    
+                    <div class="col-md-7"  style="width: 200px; margin-left: 10px;">
+                        <a href="#" class="text-dark fw-bold text-decoration-none text-uppercase  ">
+                            Hàng nghìn khách thưởng thức ẩm thực Hà Nội ở TP HCM
+                        </a>
+                                         
+                     </div>
+                                       
+                 </div>
+                <!-- Phần danh sách bài viết bên dưới -->
+                <ul class="list-unstyled mt-2">
+                    <li class="text-muted">48 giờ ở Móng Cái - Trà Cổ </li>
+                    <li class="text-muted">Bốn ngày đi Hoàng Su Phì đón lúa chín dịp 2/9</li>
+                </ul> 
+               
+            </div>
+
+    
+    </div>
+</div>
+</div>
+
+    </div>
+</div>  
+
+</div>
+
+
+
+
+
+<!--PODCASTS-->
+        <div class="row border-bottom border-2 border-dark p-3">
+            <h2 class="header-title-body ">PODCASTS</h2>
+        <div class="col-md-12 d-flex p-3">
+           
+            <div class="row w-100">
+                <div class="col-md-4 d-flex align-items-center">
+                    <div>
+                        <a href="#" class="text-dark fw-bold text-decoration-none">Bí ẩn vụ chôn sống con cháu nhà Lý của công thần nhà Trần</a>
+                        <p class="text-muted">Đại Việt sử ký toàn thư chép rằng sau khi nhà Trần thành lập, Trần Thủ Độ đã dựng bẫy giết hết tôn thất nhà Lý, giới khảo cứu đã chỉ ra những điểm vô lý trong sự việc này.</p>
+                    </div>
+                </div>
+                <div class="col-md-5 d-flex  ">
+                    <img src="https://i1-vnexpress.vnecdn.net/2024/08/19/Frame175-1724033548-4940-1724034006.jpg?w=320&h=320&q=100&dpr=1&fit=crop&s=hTIBXWjEhLf0w2ajJxlbbg" alt="R.V. Rental" class="img-fluid"  style="width: 400px; height: 400px; object-fit: cover;">
+                </div>
+                <div class="col-md-3 d-flex">
+                    <div class="row ">
+                        <div class="col-12  border-bottom border-2">
+                            <div class="d-flex align-items-center">
+                                <div class="col-md-8 p-1">
+                                    <p><strong>Vì sao thi thể Từ Hi Thái Hậu nguyên vẹn sau 20 năm chôn cất?</strong></p>
+                                </div>
+                                <div class="col-md-4 d-flex justify-content-center  ">
+                                    <img src="https://i1-vnexpress.vnecdn.net/2024/05/30/Group20707-1717064321-5334-1717066790.jpg?w=100&h=100&q=100&dpr=1&fit=crop&s=dwpQZZrGUvKVQGDKAgNGOw" alt="Fact Check" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
+                                </div>                       
+                             </div>
+                        </div>
+                        <div class="col-12 border-bottom border-2 mt-4">
+                            <div class="d-flex align-items-center justify-content-center  ">
+                                <div class="col-md-8   p-1 ">
+                                    <p><strong>Chồng ca hát nhậu nhẹt, mặc kệ con ốm bệnh</strong></p>
+                                </div>
+                                <div class="col-md-4 d-flex ">
+                                    <img src="https://i1-vnexpress.vnecdn.net/2024/08/16/ChonghamchoiV-1723798085-4598-1723798111.jpg?w=320&h=320&q=100&dpr=1&fit=crop&s=1w9xuTuSmWhjvY75vefjQQ" alt="Fact Check" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
+                                </div>                       
+                             </div>           
+                      </div>
+                      <div class="col-12 mt-4">
+                        <div class="d-flex align-items-center">
+                            <div class="col-md-8   p-1 ">
+                                <p><strong>Giải mã hiện tượng bóng đè
+                                </strong></p>
+                            </div>
+                            <div class="col-md-4 d-flex justify-content-center  ">
+                                <img src="https://i1-vnexpress.vnecdn.net/2024/08/22/Frame17-1724298385-7518-1724298564.jpg?w=320&h=320&q=100&dpr=1&fit=crop&s=S7yxJfIUJqW2YjmbuwVOcA" alt="Fact Check" class="img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
+                            </div>                       
+                         </div>           
+                  </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+<!--GAMES-->
+        <div class="row border-bottom border-2 border-dark p-3">
+            <h2 class=" header-title-body">GAMES</h2>
+            <div class="row mt-8  border-bottom  p-3">
+                <!-- Hàng thứ hai -->
+                <div class="col-md-4 border-end ">
+                    <div class="d-flex align-items-center">
+                        <div class="col-md-10   p-2 ">
+                            <p><strong>Wordle</strong></p>
+                            <p class="text-muted">Get 6 chances to guess a 5-letter word.</p>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center  ">
+                            <img src="img/Wordle.png" alt="Fact Check" class="img-fluid" style="width: 50px; height: 50px; object-fit: cover;">
+                        </div>                       
+                     </div>
+                 </div>
+                    
+              
+                <div class="col-md-4 border-end ">
+                    <div class="d-flex align-items-center">
+                        <div class="col-md-10   p-2 ">
+                            <p><strong>Spelling Bee</strong></p>
+                            <p class="text-muted">How many words can you make with 7 letters?</p>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center  ">
+                            <img src="img/bee.png" alt="Fact Check" class="img-fluid" style="width: 50px; height: 50px; object-fit: cover;">
+                        </div>                       
+                     </div>
+                </div>
+
+                <div class="col-md-4 ">
+                    <div class="d-flex align-items-center">
+                        <div class="col-md-10   p-2 ">
+                            <p><strong>Live Election Updates: Democrats Turn Focus to Harris, After Fiery Biden Speech</strong></p>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center  ">
+                            <img src="https://static01.nyt.com/images/2024/08/20/multimedia/20election-live-header-phwl/20election-live-header-phwl-superJumbo.jpg?quality=75&auto=webp" alt="Fact Check" class="img-fluid" style="width: 50px; height: 50px; object-fit: cover;">
+                        </div>                       
+                     </div>
+                </div>
+               
+             </div>
+             <div class="row mt-8  p-3">
+                <!-- Hàng thứ hai -->
+                <div class="col-md-4 border-end ">
+                    <div class="d-flex align-items-center">
+                        <div class="col-md-10   p-2 ">
+                            <p><strong>Wordle</strong></p>
+                            <p class="text-muted">Get 6 chances to guess a 5-letter word.</p>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center  ">
+                            <img src="img/Wordle.png" alt="Fact Check" class="img-fluid" style="width: 50px; height: 50px; object-fit: cover;">
+                        </div>                       
+                     </div>
+                 </div>
+                    
+              
+                <div class="col-md-4 border-end ">
+                    <div class="d-flex align-items-center">
+                        <div class="col-md-10   p-2 ">
+                            <p><strong>Spelling Bee</strong></p>
+                            <p class="text-muted">How many words can you make with 7 letters?</p>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center  ">
+                            <img src="img/bee.png" alt="Fact Check" class="img-fluid" style="width: 50px; height: 50px; object-fit: cover;">
+                        </div>                       
+                     </div>
+                </div>
+
+                <div class="col-md-4 ">
+                    <div class="d-flex align-items-center">
+                        <div class="col-md-10   p-2 ">
+                            <p><strong>Live Election Updates: Democrats Turn Focus to Harris, After Fiery Biden Speech</strong></p>
+                        </div>
+                        <div class="col-md-2 d-flex justify-content-center  ">
+                            <img src="https://static01.nyt.com/images/2024/08/20/multimedia/20election-live-header-phwl/20election-live-header-phwl-superJumbo.jpg?quality=75&auto=webp" alt="Fact Check" class="img-fluid" style="width: 50px; height: 50px; object-fit: cover;">
+                        </div>                       
+                     </div>
+                </div>
+               
+             </div>
+        </div>
+
+<!--LIÊN QUAN-->
+<div class="row p-3">
+    <h2 class=" mb-3 header-title-body">LIÊN QUAN</h2>
+    <div class="">
+        <div class="row mt-8 p-3 d-flex">
+            <!-- Cột thứ nhất -->
+            <div class="col-md-3 custom-col ">
+                <div class="align-items-center">
+                    <div class="d-flex justify-content-center">
+                        <img src="https://i1-vnexpress.vnecdn.net/2024/08/23/ap24236120255297-8588-17243836-9222-1601-1724383999.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=rL1DvMK70Y_3WqC-bBxgDQ" alt="Fact Check" class="img-fluid w-100" style=" height: 150px; object-fit: cover;">
+                    </div>
+                    <div>
+                        <p><strong>Bà Harris: 'Nước Mỹ sẽ không quay lại thời Trump'</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cột thứ hai -->
+            <div class="col-md-3 custom-col ">
+                <div class="align-items-center">
+                    <div class="d-flex justify-content-center">
+                        <img src="https://i1-vnexpress.vnecdn.net/2023/02/07/be-so-sinh-syria-jpeg-16757884-5772-7141-1675788928.jpg?w=180&h=108&q=100&dpr=1&fit=crop&s=3yyHI-2-jZYTW9z4L_F55A" alt="Fact Check" class="img-fluid w-100" style=" height: 150px; object-fit: cover;">
+                    </div>
+                    <div>
+                        <p><strong>Giải cứu bé sơ sinh từ đống đổ nát sau động đất ở Syria</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cột thứ ba -->
+            <div class="col-md-3 custom-col ">
+                <div class="align-items-center">
+                    <div class="d-flex justify-content-center">
+                        <img src="https://i1-kinhdoanh.vnecdn.net/2024/08/23/banh-1724378325-1724378382-920-1741-6380-1724397835.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=ibK5Pw3dzhiQyDNCT-OUSQ" alt="Fact Check" class="img-fluid w-100" style=" height: 150px; object-fit: cover;">
+                    </div>
+                    <div>
+                        <p><strong>Gần triệu đồng một hộp bánh trung thu handmade hình công, rồng</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cột thứ tư -->
+            <div class="col-md-3 custom-col">
+                <div class="align-items-center">
+                    <div class="d-flex justify-content-center">
+                        <img src="https://i1-kinhdoanh.vnecdn.net/2024/08/23/gold4-1724375679-8973-1724375699.jpg?w=220&h=132&q=100&dpr=1&fit=crop&s=RP8z6VpzmSvhYmuGizJkcg" alt="Fact Check" class="img-fluid w-100" style=" height: 150px; object-fit: cover;">
+                    </div>
+                    <div>
+                        <p><strong>Giá vàng thế giới giảm mạnh</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dòng tiếp theo với 4 cột -->
+    <div class="">
+        <div class="row mt-8 p-3 d-flex">
+            <!-- Cột thứ nhất -->
+            <div class="col-md-3 custom-col ">
+                <div class="align-items-center">
+                    <div class="d-flex justify-content-center">
+                        <img src="https://i1-kinhdoanh.vnecdn.net/2024/08/21/rfnkccucufp6bbm6dy6p4bdpq4-jpe-3570-7668-1724253216.jpg?w=240&h=144&q=100&dpr=1&fit=crop&s=CGaXwfFUeeT-5VRQKURxeA" alt="Fact Check" class="img-fluid w-100" style=" height: 150px; object-fit: cover;">
+                    </div>
+                    <div>
+                        <p><strong>Các ngân hàng mắc kẹt với khoản vay 13 tỷ USD của Musk</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cột thứ hai -->
+            <div class="col-md-3 custom-col">
+                <div class="align-items-center">
+                    <div class="d-flex justify-content-center">
+                        <img src="https://i1-kinhdoanh.vnecdn.net/2024/08/22/eu-dairy-1724295834-9538-1724295860.jpg?w=240&h=144&q=100&dpr=1&fit=crop&s=9IQB0MMneBOIdIag5GZp2Q" alt="Fact Check" class="img-fluid w-100" style=" height: 150px; object-fit: cover;">
+                    </div>
+                    <div>
+                        <p><strong>Trung Quốc điều tra sản phẩm từ sữa của châu Âu</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cột thứ ba -->
+            <div class="col-md-3 custom-col">
+                <div class="align-items-center">
+                    <div class="d-flex justify-content-center">
+                        <img src="https://i1-kinhdoanh.vnecdn.net/2024/08/21/sr-6960-1724219129.jpg?w=240&h=144&q=100&dpr=1&fit=crop&s=siWUEr3E-GadfnsFSD-N6Q" alt="Fact Check" class="img-fluid w-100" style=" height: 150px; object-fit: cover;">
+                    </div>
+                    <div>
+                        <p><strong>Thái Lan chi hơn 3.000 tỷ đồng mua rau quả Việt</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cột thứ tư -->
+            <div class="col-md-3 custom-col">
+                <div class="align-items-center">
+                    <div class="d-flex justify-content-center">
+                        <img src="https://i1-kinhdoanh.vnecdn.net/2024/08/21/QUYN8556-1724229737-6827-1724229744.jpg?w=240&h=144&q=100&dpr=1&fit=crop&s=rPVZDWCLozzCQShLclrHrg" alt="Fact Check" class="img-fluid w-100" style=" height: 150px; object-fit: cover;">
+                    </div>
+                    <div>
+                        <p><strong>Chứng khoán tăng 4 phiên liên tiếp</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+     <!--form login-->
+        <div class="modal" id="loginModal">
+            <div class="modal__overlay">
+                <div class="modal__body">
+                    <div class="modal-dialog login-modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <img src="img/logo.png" style="width: 200px; height: 60px; object-fit: cover;"> 
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="goBackLogin()"></button>
+                            </div>
+                            <div class="modal-body mt-2">
+                                <ul class="nav nav-tabs justify-content-between mb-4">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#">Đăng nhập</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" onclick="transferRegister()">Đăng ký</a>
+                                    </li>
+                                </ul>
+                                <!-- Social login buttons -->
+                                <div class="social-login d-flex justify-content-center text-center">
+                                    <button class="btn btn-outline-secondary me-2">
+                                        <img src="https://img.icons8.com/color/16/000000/google-logo.png"/> Google
+                                    </button>
+                                    <button class="btn btn-outline-secondary ms-2">
+                                        <img src="https://img.icons8.com/color/16/000000/facebook-new.png"/> Facebook
+                                    </button>
+                                </div>
+                
+                                <div class="divider mb-3">hoặc</div>
+                
+                                <!-- Login form -->
+                                <form >
+                                    <div class="mb-3">
+                                        <input type="email" id="email" class="form-control" placeholder="Email" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="input-group">
+                                            <input type="password" id="password" class="form-control" placeholder="Mật khẩu" required>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <a href="#" class="text-muted ms-auto">Quên mật khẩu?</a>
+                                    </div>
+                                    <button type="submit" class="btn btn-success w-100">Đăng nhập</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     <!-- Registration Modal -->
+     <div class="modal" id="registerModal">
+        <div class="modal__overlay">
+            <div class="modal__body">
+                <div class="modal-dialog register-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <img src="img/logo.png" style="width: 200px; height: 60px; object-fit: cover;"> 
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="goBackRegister()"></button>
+                        </div>
+                        <div class="modal-body mt-2">
+                            <ul class="nav nav-tabs justify-content-between mb-4">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" onclick="transferLogin()">Đăng nhập</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">Đăng ký</a>
+                                </li>
+                            </ul>
+                             <!-- Social login buttons -->
+                             <div class="social-register d-flex justify-content-center text-center">
+                                <button class="btn btn-outline-secondary me-2">
+                                    <img src="https://img.icons8.com/color/16/000000/google-logo.png"/> Google
+                                </button>
+                                <button class="btn btn-outline-secondary ms-2">
+                                    <img src="https://img.icons8.com/color/16/000000/facebook-new.png"/> Facebook
+                                </button>
+                            </div>
+                            <!-- Registration form -->
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" id="fullName" class="form-control" placeholder="Họ tên" required>
+                                    <small id="nameError" class="text-danger"></small>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="email" id="registerEmail" class="form-control" placeholder="Email" required>
+                                    <small id="emailError" class="text-danger"></small>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="input-group">
+                                        <input type="password" id="registerPassword" class="form-control" placeholder="Mật khẩu" required>
+                                        
+                                    </div>
+                                    <small id="passwordError" class="text-danger"></small>
+                                </div>
+                                <div class="mb-3">
+                                    <div class="input-group">
+                                        <input type="password" id="confirmPassword" class="form-control" placeholder="Nhập lại mật khẩu" required>
+                                       
+                                    </div>
+                                    <small id="confirmPasswordError" class="text-danger"></small>
+                                </div>
+                                <div class="terms-text">
+                                    Bằng cách đăng ký tài khoản, bạn cũng đồng thời chấp nhận mọi 
+                                    <a href="#">điều kiện về qui định và chính sách của Vietnews</a>.
+                                </div>
+                                <button type="submit" class="btn btn-success w-100 mt-3" onclick="validateRegistration()">Đăng ký</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+       
+    <!-- Footer -->
+    <footer class=" pt-5 border-top border-2 border-dark">
+        <div class="container">
+            <div class="row">
+                <!-- Thời sự -->
+                <div class="col-md-2">
+                    <h5>Thời sự</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-muted" href="#">Quốc hội</a></li>
+                        <li><a class="text-muted" href="#">An toàn giao thông</a></li>
+                        <li><a class="text-muted" href="#">Môi trường</a></li>
+                        <li><a class="text-muted" href="#">BHXH-BHYT</a></li>
+                        <li><a class="text-muted" href="#">Chống tham nhũng</a></li>
+                        <li><a class="text-muted" href="#">Quốc phòng</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Thế giới -->
+                <div class="col-md-2">
+                    <h5>Thế giới</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-muted" href="#">Bình luận quốc tế</a></li>
+                        <li><a class="text-muted" href="#">Chân dung</a></li>
+                        <li><a class="text-muted" href="#">Hồ sơ</a></li>
+                        <li><a class="text-muted" href="#">Thế giới đó đây</a></li>
+                        <li><a class="text-muted" href="#">Việt Nam và thế giới</a></li>
+                        <li><a class="text-muted" href="#">Quân sự</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Video -->
+                <div class="col-md-2">
+                    <h5>Video</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-muted" href="#">Thời sự</a></li>
+                        <li><a class="text-muted" href="#">Nhịp sống</a></li>
+                        <li><a class="text-muted" href="#">Food</a></li>
+                        <li><a class="text-muted" href="#">Pháp luật</a></li>
+                        <li><a class="text-muted" href="#">Giải trí</a></li>
+                        <li><a class="text-muted" href="#">Thế giới</a></li>
+                        <li><a class="text-muted" href="#">Khoa học</a></li>
+                        <li><a class="text-muted" href="#">Thể thao</a></li>
+                        <li><a class="text-muted" href="#">Giáo dục</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Podcasts -->
+                <div class="col-md-2">
+                    <h5>Podcasts</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-muted" href="#">Tâm điểm kinh tế</a></li>
+                        <li><a class="text-muted" href="#">Tài chính cá nhân</a></li>
+                        <li><a class="text-muted" href="#">Giải mã</a></li>
+                        <li><a class="text-muted" href="#">Tôi kể</a></li>
+                        <li><a class="text-muted" href="#">Bạn ổn không?</a></li>
+                        <li><a class="text-muted" href="#">Điểm tin</a></li>
+                        <li><a class="text-muted" href="#">Tiền làm gì?</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Kinh doanh -->
+                <div class="col-md-2">
+                    <h5>Kinh doanh</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-muted" href="#">Net Zero</a></li>
+                        <li><a class="text-muted" href="#">Tài chính</a></li>
+                        <li><a class="text-muted" href="#">Đầu tư</a></li>
+                        <li><a class="text-muted" href="#">Thị trường</a></li>
+                        <li><a class="text-muted" href="#">Doanh nhân</a></li>
+                        <li><a class="text-muted" href="#">Tư vấn tài chính</a></li>
+                        <li><a class="text-muted" href="#">Chuyển động kinh tế số</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Khoa học -->
+                <div class="col-md-2">
+                    <h5>Khoa học</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="text-muted" href="#">Khoa học trong nước</a></li>
+                        <li><a class="text-muted" href="#">Chỉ số PII</a></li>
+                        <li><a class="text-muted" href="#">Tin tức</a></li>
+                        <li><a class="text-muted" href="#">Phát minh</a></li>
+                        <li><a class="text-muted" href="#">Ứng dụng</a></li>
+                        <li><a class="text-muted" href="#">Thế giới tự nhiên</a></li>
+                        <li><a class="text-muted" href="#">Thưởng thức</a></li>
+                        <li><a class="text-muted" href="#">AI4VN 2024</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <p class="text-muted mb-0">&copy; 2024 Vietnews online</p>
+                    <p class="text-muted">
+                        <a href="#" class="text-muted">Contact Us</a> |
+                        <a href="#" class="text-muted">Privacy Policy</a> |
+                        <a href="#" class="text-muted">Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="../JAVASCRIPT.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+.custom-container-menu {
+    height: 40px;
+}
+
+.custom-navbar {
+    background-color: #891d1d;
+    padding: 0; /* Xoá padding trên và dưới để phù hợp với chiều cao */
+    height: 40px;
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+}
+
+.custom-navbar-nav {
+    display: flex;
+    list-style-type: none; /* Loại bỏ dấu chấm từ danh sách chính */
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    align-items: center; /* Căn giữa các mục theo chiều dọc */
+}
+
+.custom-nav-item {
+    position: relative;
+}
+.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1020; /* Ensure it is above other content */
+}
+.custom-nav-link {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.custom-nav-link:hover {
+    color: #000912; /* Màu chữ khi hover */
+}
+/* Dropdown Menu Styles */
+.custom-dropdown-menu {
+    position: absolute; /* Đặt vị trí của dropdown menu */
+    top: 100%; /* Đặt vị trí bên dưới item */
+    left: 0;
+    background-color: #eeecec;
+    border: 1px solid #ddd;
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Ẩn menu theo mặc định */
+    z-index: 1000; /* Đảm bảo menu nằm trên các phần tử khác */
+    min-width: 200px;
+    list-style-type: none;
+}
+
+
+.custom-dropdown-menu li {
+    margin: 0; /* Xoá margin của các mục danh sách */
+    border-bottom: 1px solid #b7b2b2;
+}
+
+.custom-dropdown-item {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    display: block;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    list-style-type: none; /* Loại bỏ dấu chấm */
+  
+}
+
+.custom-dropdown-item:hover {
+    color: #891d1d;
+    transform: translateX(5px); /* Shift item 5px to the right */
+
+}
+
+/* Hiển thị menu khi hover */
+.custom-nav-item:hover .custom-dropdown-menu {
+    display: block;
+}
+.custom-navbar-wrapper {
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.custom-navbar-wrapper::-webkit-scrollbar {
+    display: none;
+}
+@media (min-width: 1200px) {
+   
+    
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .custom-navbar-nav {
+        display: flex; /* Đảm bảo các mục vẫn hiển thị */
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .custom-nav-item {
+        margin: 0 5px; /* Khoảng cách giữa các mục */
+        display: inline-block; /* Đảm bảo các mục nằm trên cùng một dòng */
+    }
+
+    .custom-navbar-wrapper {
+        overflow-x: scroll; /* Cho phép cuộn ngang */
+        scrollbar-width: none; /* Ẩn thanh cuộn trong Firefox */
+    }
+    .custom-dropdown-menu{
+        display:none;
+    }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+    .custom-navbar-nav {
+        display: flex; /* Đảm bảo các mục vẫn hiển thị */
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .custom-nav-item {
+        margin: 0 5px; /* Khoảng cách giữa các mục */
+        display: inline-block; /* Đảm bảo các mục nằm trên cùng một dòng */
+    }
+
+    .custom-navbar-wrapper {
+        overflow-x: scroll; /* Cho phép cuộn ngang */
+        scrollbar-width: none; /* Ẩn thanh cuộn trong Firefox */
+    }
+    .custom-dropdown-menu{
+        display:none;
+    }
+}
+@media (max-width: 768px) {
+    .custom-navbar-nav {
+        display: flex; /* Đảm bảo các mục vẫn hiển thị */
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
+    .custom-nav-item {
+        margin: 0 5px; /* Khoảng cách giữa các mục */
+        display: inline-block; /* Đảm bảo các mục nằm trên cùng một dòng */
+    }
+
+    .custom-navbar-wrapper {
+        overflow-x: scroll; /* Cho phép cuộn ngang */
+        scrollbar-width: none; /* Ẩn thanh cuộn trong Firefox */
+    }
+    .custom-dropdown-menu{
+        display:none;
+    }
+
+}

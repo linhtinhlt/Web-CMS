@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Simple Form</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 1200px;
+        }
+
+        button {
+            background-color: #f1533b;
+            border-color: #d42a04;
+            color:white;
+            width: 100%;
+            height:40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto 0; 
+        }
+
+        button:hover {
+            background-color: #e92a0d;
+            color:white;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-control {
+            border-width: 1px;
+            border-color: #6c757d;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="modal-header">
+            <img src="img/logo.png" style="width: 200px; height: 60px; object-fit: cover;"> 
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <h2 class="text-muted mt-3">Đăng tin</h2>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="title" class="form-label text-muted">Tiêu đề:</label>
+                <input type="text" id="title" name="title" class="form-control text-muted" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label text-muted">Ảnh:</label>
+                <input type="file" id="image" name="image" class="form-control text-muted" accept="image/*" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="video-link" class="form-label text-muted">Liên kết video:</label>
+                <input type="url" id="video-link" name="video-link" class="form-control text-muted" placeholder="http://">
+            </div>
+
+            <div class="mb-3">
+                <label for="content" class="form-label text-muted">Nội dung:</label>
+                <textarea id="content" name="content" class="form-control text-muted" rows="5" required></textarea>
+            </div>
+
+            <button type="submit" >Đăng</button>
+        </form>
+    </div>
+</body>
+</html>
