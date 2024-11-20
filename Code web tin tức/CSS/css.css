@@ -1,0 +1,109 @@
+body {
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Arial", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-size: 14px;
+    font-weight: 400; 
+}
+
+.social-icon:hover{
+    
+    background:#891d1d;
+}
+
+h3, h4, h5, h6 {
+    font-weight: bold;
+    font-size: 1rem;
+   
+}
+h1,h2{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+p {
+    font-size: 1rem;
+}
+ a {
+    font-size: 1rem;
+}
+
+.header-title {
+    
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.5rem;
+}
+.link-with-divider {
+    position: relative;
+    display: inline-block;
+    padding-right: 12px; /* Khoảng cách giữa chữ và đường phân cách */
+
+}
+
+.link-with-divider::after {
+    content: '|'; /* Ký tự gạch dọc */
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    color: #000; /* Màu gạch dọc */
+}
+
+.language-link,
+.login-link,
+.register-link{
+    color: #2c2a2a;  /* Màu đỏ */
+}
+.vn-vietnam{
+    color: #891d1d;
+}
+.language-link:hover,
+.login-link:hover,
+.register-link:hover {
+    color: #848282; /* Màu đỏ */
+}
+.flag-icon {
+    width: 20px; /* Kích thước của biểu tượng cờ */
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px; /* Khoảng cách giữa cờ và văn bản */
+    position:relative;
+    bottom: 3px;
+}
+
+
+.news-main {
+    font-size: 1rem;
+}
+.custom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.news-main {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.header-title-body{
+    color: #891d1d;
+}
+footer{
+
+    color: #891d1d;
+}
+.embed-responsive {
+    margin-top: 10px;
+}
+
+
+.img-content{
+    max-width: 100%;
+}
+.img-content img{
+    width: 85%;
+    height: 350px;
+    display: block;
+}
+.no-translate {
+    text-transform: none !important;
+  }
+  

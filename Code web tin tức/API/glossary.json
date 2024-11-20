@@ -1,0 +1,21 @@
+{
+    "vi_to_en": {
+        "Đăng nhập": "Log in",
+        "Đăng xuất": "Sign out",
+        "Trang chủ": "Home",
+        "Hồ sơ":"Profile",
+        "VI": "VI",
+        "EN": "EN",
+        "Quản trị": "Administer"
+    },
+    "en_to_vi": {
+        "Log in": "Đăng nhập",
+        "Sign out": "Đăng xuất",
+        "Home": "Trang chủ",
+        "Profile": "Hồ sơ",
+        "VI": "VI",
+        "EN": "EN",
+        "Administer": "Quản trị"
+    }
+
+}

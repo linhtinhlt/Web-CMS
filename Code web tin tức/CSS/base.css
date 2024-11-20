@@ -1,0 +1,109 @@
+body {
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Arial", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-size: 16px;
+    font-weight: 400; 
+}
+
+.social-icon:hover{
+    
+    background:#891d1d;
+}
+
+h3, h4, h5, h6 {
+    font-weight: bold;
+    font-size: 1.2rem;
+   
+}
+h1,h2{
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+p {
+    font-size: 1rem;
+}
+ a {
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+/* home */
+.container-lg {
+    max-width: 1140px;
+    margin: auto;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+main {
+    padding: 20px;
+}
+article:hover{
+    cursor: pointer;
+}
+.linkitem {
+    display: block;
+    justify-content: flex-end; /* Căn phải trên màn hình lớn */
+    flex-wrap: wrap; /* Cho phép xuống hàng */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+}
+/* Responsive chung */
+@media (max-width: 992px) {
+    
+    main {
+        padding: 15px;
+    }
+   
+}
+
+@media (max-width: 768px) {
+   
+    aside {
+        display: none;
+    }
+    
+    .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+}
+/*modal*/
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none; /* Ẩn modal mặc định */
+    animation: fadeIn linear 0.1s;
+    z-index: 1050;
+}
+
+.modal__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal__body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 5px;
+    max-width: 550px;
+    width: 100%;
+}
+
+
+
+
